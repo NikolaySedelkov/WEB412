@@ -3,11 +3,11 @@
     padding: 0;
 }
 
-#toogle-modal-window {
+.toogle-modal-window {
     display: none;
 }
 
-#toogle-modal-window + label {
+.toogle-modal-window + label {
     display: block;
     
     width: 150px;
@@ -20,7 +20,15 @@
     color: white;
 }
 
-#toogle-modal-window + label:hover {
+#toogle-modal-window_open + label > #modal-window {
+    display: none;
+}
+
+#toogle-modal-window_open:checked + label > #modal-window {
+    display: flex;
+}
+
+.toogle-modal-window + label:hover {
     background-color: darkmagenta;
     cursor: pointer;
 }
