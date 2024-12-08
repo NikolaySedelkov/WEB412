@@ -8,3 +8,9 @@
     background-color: lightcoral;
     border: 1px solid brown;
 }
+
+.my-dialog {
+    width: 80vw;
+    background-color: red;
+    border-radius: 0;
+}
