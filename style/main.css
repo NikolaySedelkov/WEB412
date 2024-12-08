@@ -1,0 +1,10 @@
+.table-wrapper {
+    background-color: lightpink;
+
+    height: 70px;
+}
+
+.cell {
+    background-color: lightcoral;
+    border: 1px solid brown;
+}
