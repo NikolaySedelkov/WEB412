@@ -1,3 +1,6 @@
+let myPlanetName = 'Земля';
+let currentUserName = 'Николай';
+
 /**
  * prompt - Функция пользовательского ввода
  * 
@@ -54,6 +57,7 @@
 let userName = prompt("Введите своё имя");
 alert("Для того, чтобы увидеть содержимое переменной 'userName' нажмите 'ОК'");
 alert(userName);
+
 
 prompt(
     /**
