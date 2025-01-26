@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML</title>
+    <script src="./dom.js" defer></script>
+</head>
+<body id="page">
+    <div id="inner-html"></div>
+
+    <nav id="navigator">
+        <button>о нас</button>
+        <button>каталог</button>
+    </nav>
+
+    <span id="ex-class-list" class="margin-none item full-page">
+    <style>
+        #navigator {
+            display: flex;
+            gap: 10;
+        }
+
+        .dark {
+            background-color: black;
+            color: white;   
+        }
+    </style>
+
+    <h1>Hello!</h1>
+    <p><span>Ваше имя: </span><span id="user-name"></span></p>
+    <p id="current-year"></p>
+</body>
+</html>
