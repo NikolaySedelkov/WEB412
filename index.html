@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <script src="./script.js" defer></script>
+</head>
+<body>
+    <p>
+        <span>Введите своё имя: </span><input type="text" id="name"/><button id="button-save-name">Сохранить</button> 
+    </p>
+    <p id="line-password">
+        <span>Введите пароль: </span><input type="password" id="password"/><button id="button-password-hide">Показать пароль</button> 
+    </p>
+
+    <ul id="timeList"></ul>
+    <div id="addTime">Добавить</div>
+    <style>
+        #timeList li{
+            display: flex;
+            align-items: center;
+        }
+
+        #modal-buy-overlay {
+            position: absolute;
+            height: 100vh;
+            width: 100vw;
+            top: 0;
+            left: 0;
+
+            background-color: rgba(0, 0, 0, 0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #modal-buy-content {
+            background-color: snow;
+            box-shadow: 0 0 10px black;
+            border-radius: 15px;
+
+            width: 500px;
+            height: 600px;
+
+            padding: 15px;
+            box-sizing: border-box;
+
+            overflow: auto;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .ex-resizes-button {
+            width: 100px;   
+            aspect-ratio: 1/1;
+        }
+
+        .ex-resizes-button.red {
+            background-color: red;
+        }
+
+        .ex-resizes-button.green {
+            background-color: green;
+        }
+
+        .ex-resizes-button.blue {
+            background-color: blue;
+        }
+    </style>
+
+    <button class="ex-resizes-button red"></button>
+    <button class="ex-resizes-button green"></button>
+    <button class="ex-resizes-button blue"></button>
+
+   <button id="open-model-buy">Купить</button>
+   <div id="modal-buy-overlay" class="hidden">
+        <div id="modal-buy-content">
+            <div style="display: flex; justify-content: space-between;">
+                <h1>Потвердите покупку</h1> <button id="close-modal-buy">x</button>
+            </div>
+        </div>
+   </div>
+</body>
+</html>
