@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./script.js" defer></script>
+    <script src="./promise.async.js" defer></script>
+</head>
+<body>
+    <ol id="conteiner-number">
+
+    </ul>
+
+    <form id="form-file" method="get">
+        <label for="file"></label>
+        <input id="file" name="pict" type="file" accept=".jpg,.png,.jpeg,.svg"/>
+        <br/>
+        <button type="reset">Очистить</button>
+        <button>Показать</button>
+    </form>
+    <img id="pict-preview"/>
+</body>
+</html>
