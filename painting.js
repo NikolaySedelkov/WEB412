@@ -3,14 +3,28 @@
  * @param {HTMLCanvasElement} contextCanvas 
  * @param {'fill' | 'stroke'} type 
  */
-function drawRect(contextCanvas, type, x, y, width, height, color = '#fff') {
-    const style = `${type}Style`;
-    const prevColor = contextCanvas[style];
-    contextCanvas[style] = color;
+function drawRect(contextCanvas, type, x, y, width, height, styleOptions) {
+    const {
+        fillRect,
+        strokeRect,
+        clearRect,
+        ...prevStylesProperties
+    } = contextCanvas;
 
+    
+    Object.entries(styleOptions).forEach(
+        ([styleProperty, styleValue]) => {
+            console.log(styleProperty, styleValue)
+            contextCanvas[styleProperty] = styleValue;
+        }
+    );
     contextCanvas[`${type}Rect`](x, y, width, height);
 
-    contextCanvas[style] = prevColor;
+    Object.entries(prevStylesProperties).forEach(
+        ([styleProperty, styleValue]) => {
+            contextCanvas[styleProperty] = styleValue;
+        }
+    );
 }
 
 
@@ -48,7 +62,43 @@ contextCanvas.fillRect(250, 0, 250, 400);
  */
 contextCanvas.clearRect(450, 175, 50, 50);
 
-
 // Настройки рисования
-drawRect(contextCanvas, 'stroke', 150, 150, 150, 150, 'green');
+drawRect(contextCanvas, 'stroke', 150, 150, 150, 150, {
+    strokeStyle: 'green',
+    lineWidth: 15,
+    lineJoin: 'bevel',
+    globalAlpha: 0.9,
+});
 contextCanvas.fillRect(10, 10, 10, 10);
+
+
+
+contextCanvas.lineWidth = 2;
+contextCanvas.lineJoin = 'round';
+contextCanvas.globalAlpha = 1;
+
+contextCanvas.moveTo(0, 380);
+contextCanvas.lineTo(125, 330);
+contextCanvas.lineTo(250, 380);
+
+contextCanvas.closePath();
+
+contextCanvas.stroke();
+contextCanvas.fill();
+
+/**
+ * arc - нарисовать изогнутую линию
+ * arc(
+ *  x,  -   Координаты 
+ *  y,  -       Начала дуги
+ *  radius, - Радиус
+ *  startAngel, - Начальный угол дуги
+ *  endAngel,   - Конечный угол дуги
+ *  rotateDirection - Направление дуги
+ * )
+ */
+
+
+contextCanvas.beginPath();
+contextCanvas.arc(100, 300, 40, Math.PI / 2, 3 * Math.PI / 2, false);
+contextCanvas.stroke();
