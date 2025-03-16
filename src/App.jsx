@@ -1,25 +1,16 @@
-import { Component } from "react";
+import styles from './App.module.css';
+import { ButtonPageUp } from './ButtonPageUp';
 
 export function App() {
   return (
-    <h1>Hello <i>world!</i></h1>
+    <>
+      <div className={styles["grid-window-logo"]}>
+        <div className={styles["green"]}/>
+        <div className={styles["yellow"]}/>
+        <div className={styles["blue"]}/>
+        <div className={styles["red"]}/>
+      </div>
+      <ButtonPageUp/>
+    </>
   )
 }
-
-export const OtherComponent = () => {
-  return (
-    <h2>Second component</h2>
-  )
-}
-
-export class ClassesComponent extends Component {
-  constructor() {
-    super();
-  }
-  
-  render() {
-    return (
-      <h3>Классовый компонент</h3>
-    )
-  }
-} 
