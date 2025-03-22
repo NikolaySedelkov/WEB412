@@ -1,4 +1,4 @@
-import styles from './App.module.css';
+import styles from "./App.module.css"
 
 /**
  * SPA - Single Page Aplication - Приложение в одну страницу
@@ -9,18 +9,32 @@ import styles from './App.module.css';
  * 
  */
 
-const myStyle = { border: "10px solid red" }
+import { Battery } from "./components/Battery";
+import { Calculate } from "./components/Calculate/Calculate";
+import { Khosting } from "./components/Khosting/Khosting";
+
+const volumies = [5, 21, 19, 55, 1];
 
 export function App() {
-  const hours = new Date().getHours();
-
-  const isDay = 6 < hours && hours < 23;
-
-  const theme = styles[`theme-${isDay ? 'day' : 'night'}`]
-
   return (
-    <div className={`${styles["wrapper-full-size"]} ${theme}`} style={myStyle}>
+    <>
+      <Calculate/>
+      <Khosting/>
+      <div className={styles["many-batteries"]}>
+        {/* Вызов фукнкции Battery с параметром '79' */}
+        <Battery volume={79}/>
+        <Battery volume={21}/>
+        <Battery volume={98}/>
+        
+        <Battery volume={65}/>
+        <Battery volume={1}/>
 
-    </div>
+        {
+          // К любому элементу, полученому из map нужно прописать key - уникальный идентификатор для виртуального DOM
+          // Уникальный в рамках map
+          volumies.map((volume, index) => <Battery key={index} volume={volume}/>)
+        }
+      </div>
+    </>
   )
 }

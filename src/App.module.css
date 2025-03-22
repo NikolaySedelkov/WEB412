@@ -10,3 +10,9 @@
 .theme-night {
   background-color: black;
 }
+
+.many-batteries {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
