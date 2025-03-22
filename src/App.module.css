@@ -1,26 +1,12 @@
-.grid-window-logo {
-  display: grid;
-  gap: 5px;
-
-  grid-template-rows: 1fr 1fr;
-  grid-template-columns: 1fr 1fr;
-
-  width: 300px;
-  aspect-ratio:  1/1;
+.wrapper-full-size {
+  width: 100vw;
+  height: 100vh;
 }
 
-.grid-window-logo .red {
-  background-color: red;
+.theme-day {
+  background-color: white;
 }
 
-.grid-window-logo .blue {
-  background-color: blue;
-}
-
-.grid-window-logo .yellow {
-  background-color: yellow;
-}
-
-.grid-window-logo .green {
-  background-color: green;
+.theme-night {
+  background-color: black;
 }
