@@ -60,25 +60,39 @@ export function Form({onSubmit}) {
                     <tr>
                         <td>Пароль: </td>
                         <td>
-                            <input 
-                                name="password" 
-                                value={formData.password}
-                                type={isVisiblePassword ? "text" : "password"}
+                            <FormPasswordField
                                 onChange={handleChange}
+                                value={formData.password}
                             />
                         </td>
-                        <td>
-                            <button 
-                                type="button"
-                                onClick={() => setStateVisiblePassword(prev => !prev)}
-                            >
-                                {isVisiblePassword ? '~' : 'o'}
-                            </button>
-                        </td>
                     </tr>
+                    
                 </tbody>
             </table>
             <button>Сохранить</button>
         </form>
+    )
+}
+
+// Для того, чтобы изменения внутри этого компонента приводили к изменению родителя
+// нужно в пропсы к этому компоненты пробросить функцию изменения состояния
+function FormPasswordField({value, onChange}) {
+    const [isVisiblePassword, setStateVisiblePassword] = useState(false)
+
+    return (
+        <label>
+            <input 
+                name="password" 
+                value={value}
+                type={isVisiblePassword ? "text" : "password"}
+                onChange={onChange}
+            />
+            <button 
+                type="button"
+                onClick={() => setStateVisiblePassword(prev => !prev)}
+            >
+                {isVisiblePassword ? '~' : 'o'}
+            </button>
+        </label>
     )
 }
