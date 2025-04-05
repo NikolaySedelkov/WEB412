@@ -1,0 +1,25 @@
+.wrapper {
+    width: 100%;
+    min-height: 100vh;
+
+    background-image: url('./react-router-dom-logo.svg');
+
+    display: flex;
+    justify-content: center;
+
+    padding-top: 150px;
+    box-sizing: border-box;
+}
+
+.content-container {
+    max-width: 1000px;
+    width: max-content;
+
+
+    background-color: white;
+    padding: 25px;
+    box-sizing: border-box;
+
+    border-radius: 15px;
+    box-shadow: 0 0 10px black;
+}
