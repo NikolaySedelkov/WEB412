@@ -1,7 +1,11 @@
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import styles from './List.module.css';
+import { useContext } from 'react';
+import { ProductContext } from '../../components/LayoutProduct';
 
-export function List({data, onDelete}) {
+export function List() {
+    const { data, handleDelete } = useContext(ProductContext);
+
     return (
         <div className={styles['wrapper']}>
             {
@@ -10,11 +14,14 @@ export function List({data, onDelete}) {
                         <ListItem 
                             key={item.id} 
                             item={item}
-                            onDelete={()=>{onDelete(item)}}
+                            onDelete={()=>{handleDelete(item)}}
                         />
                     )
                 )
             }
+            <Link to="/product/create" className={styles['trigger-new']}>
+                +
+            </Link>
         </div>
     )
 }

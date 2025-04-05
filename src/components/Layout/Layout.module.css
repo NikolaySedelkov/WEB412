@@ -2,7 +2,7 @@
     width: 100%;
     min-height: 100vh;
 
-    background-image: url('./react-router-dom-logo.svg');
+    background-image: url('/react-router-dom-logo.svg');
 
     display: flex;
     justify-content: center;
