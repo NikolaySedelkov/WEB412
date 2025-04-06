@@ -1,5 +1,5 @@
-import { useContext, useEffect, useState } from "react"
-import { TimeContext } from "../../App";
+import { useEffect, useState } from "react"
+import { useSelector } from "react-redux";
 
 export function Game() {
     return (
@@ -19,7 +19,7 @@ export function Target({
     widthParent, 
     heightParent,
 }) {
-    const timestamp = useContext(TimeContext);
+    const timestamp = useSelector(state => state.time.timestamp);
 
     const [position, setPosition] = useState(() => ({
         left: Math.round(Math.random() * (widthParent - 30)),
