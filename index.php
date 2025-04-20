@@ -1,57 +1,57 @@
 <?php
     /*
-        Все скрипты PHP разрабатываются в следующих блоках <?php ?>
+        Все скрипты PHP разрабатываются в следующих блоках <?php ... ?>
 
         PHP - preproces hypertext programm
     */
-
-    // Для созздания переменной: $NAME_VAR = VALUE;
-    $lang = 'PHP';
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PHP</title>
-    <script src="./static/js/index.js" defer></script>
-</head>
-<body>
-    <a href="./pages/login">Авторизация</a>
-    <h1>Hello world!</h1>
-    <h2>
-        Learn 
-        <i>
-        <?php
-            // echo - Возврат текста в верстку
-            echo $lang;
-        ?>
-        </i>
-    </h2>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>PHP</title>
+        <script src="./static/js/index.js" defer></script>
+    </head>
+    <body>
+        <form action="./sort-array" method="get">
+            <div class="container_input-numbers">
+                <div class="input-number">
+                    <input name="number[]" type="number"/>
+                    <button type="button">🗑️</button>
+                </div>
+            </div>
+            <div class="add_input-number">
+                <button type="button">+</button>
+            </div>
 
-    <form action="./calc" method="get">
-        <input type="number" name="a" required/>
-        <select name="operator" required>
-            <option value="+">+</option>
-            <option value="-">-</option>
-            <option value="*">*</option>
-            <option value="/">/</option>
-        </select>
-        <input type="number" name="b" required/>
-        <button>Посчитать</button>
-    </form>
+            <button>Отсортировать</button>
+        </form>
 
-    <form id="form_calc-post" action="./calc-post" method="post">
-        <input type="number" name="a" required/>
-        <select name="operator" required>
-            <option value="+">+</option>
-            <option value="-">-</option>
-            <option value="*">*</option>
-            <option value="/">/</option>
-        </select>
-        <input type="number" name="b" required/>
-        <button>Посчитать</button>
-    </form>
-</body>
+        <form id="auth-form" action="./lk/auth" method="post">
+            <input type="text" name="login"/>
+            <input type="password" name="password"/>
+            <button>Войти</button>
+        </form>
+
+        <script>
+            const form = document.getElementById('auth-form');
+
+            form.addEventListener('submit', e => {
+                e.preventDefault();
+
+                fetch(e.target.action, {
+                    method: 'POST',
+                    body: new FormData(e.target)
+                })
+                .then(res => res.text())
+                .then(id => {
+                    if(id.length > 0) {
+                        document.location.href=`./lk?id=${id}`
+                    }   
+                })
+            })
+        </script>
+    </body>
 </html>

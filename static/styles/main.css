@@ -1,0 +1,10 @@
+.input-number {
+    display: flex;
+    gap: 10px;
+
+    width: 100%;
+}
+
+.container_input-numbers, .add_input-number {
+    width: 200px;
+}
