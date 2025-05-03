@@ -1,0 +1,7 @@
+{
+    "scripts": {
+        "dev:client": "cd ./client & npm run dev",
+        "dev:server": "cd ./server & php -S localhost:9012",
+        "dev": "npm run dev:client && npm run dev:server"
+    }
+}
