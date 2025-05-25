@@ -42,6 +42,7 @@
         <title><?php echo $film->title?></title>
     </head>
     <body>
+        <a href="film/update?id=<?php echo $film->film_id;?>">Изменить</a>
         <table>
             <tr>
                 <td>
