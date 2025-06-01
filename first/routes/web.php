@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\NavigateController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,21 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('', function (Request $request) {
-    return view(
-        'welcome', 
-        [
-            "message" => $request->get('name').", Hello world! ",
-            "role" => "guest",
-            "db" => [
-                "user" => "root",
-                "url" => "localhost",
-                "port" => 5555
-            ],
-            "array" => []
-        ]
-    );
-});
+Route::get('', [NavigateController::class, 'toHome']);
 
 Route::get('/home', function() {
     return 'Hello world!';
@@ -44,6 +32,12 @@ Route::get('/sub-test', function() {
 Route::get('/sub/test', function() {
     return view('subdirectory.test');
 });
+
+Route::get('/contact', [NavigateController::class, 'toContact'])->name('page-contant');;
+
+Route::get('/about', [NavigateController::class, 'toAbout'] )->name('page-about');
+
+Route::get('/korzina', [NavigateController::class, 'toKorzina'])->name('page-korzina');;
 
 /*
 Ошибка, так как такой путь доступен из public

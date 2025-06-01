@@ -1,8 +1,24 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
+        @vite(['resources/css/app.css'])
     </head>
     <body>
+        <img src='{{ Storage::url("assets/img/laravel-logo.jpeg") }}'/>
+        <ul>
+            <li>
+                <a href="{{ route('page-about') }}">О нас</a>
+            </li>
+
+            <li>
+                <a href="{{ route('page-contant') }}">Контакты</a>
+            </li>
+
+            <li>
+                <a href="{{ route('page-korzina') }}">Корзина</a>
+            </li>
+        </ul>
+
         @php
             use Illuminate\Foundation\Application;
             $hIndex = rand(1, 6);
